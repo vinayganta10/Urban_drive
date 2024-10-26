@@ -1,0 +1,695 @@
+/* Base styles */
+.home-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #2E5266FF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .brand-icon {
+    color: white;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: auto;
+  }
+  
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    width: 100%;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem;
+  }
+  
+  .login-btn,
+  .signup-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .login-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .signup-btn {
+    background: white;
+    color: #2E5266FF;
+    border: none;
+  }
+  
+  .login-btn:hover,
+  .signup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding-top: 6rem;
+    min-height: 100vh;
+    background: linear-gradient(rgba(46, 82, 102, 0.9), rgba(46, 82, 102, 0.9)),
+                url('https://images.unsplash.com/photo-1485291571150-772bcfc10da5?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+  }
+  
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+  
+  /* Booking Form */
+  .booking-form {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f8f9fa;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group:hover {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .form-group select,
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+    color: #2E5266FF;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .search-btn {
+    background: #2E5266FF;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background: #234156;
+    transform: translateY(-2px);
+  }
+  
+  /* Popular Cars Section */
+  .popular-cars {
+    padding: 6rem 2rem;
+    background: white;
+  }
+  
+  .popular-cars h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2E5266FF;
+    margin-bottom: 3rem;
+  }
+  
+  .cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .car-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .car-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .car-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(46, 82, 102, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .car-details {
+    padding: 1.5rem;
+  }
+  
+  .car-details h3 {
+    font-size: 1.3rem;
+    color: #2E5266FF;
+    margin-bottom: 1rem;
+  }
+  
+  .car-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2E5266FF;
+  }
+  
+  .period {
+    color: #666;
+  }
+  
+  .book-now-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: #2E5266FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .book-now-btn:hover {
+    background: #234156;
+    transform: translateY(-2px);
+  }
+  
+  /* Why Choose Us Section */
+  .why-choose-us {
+    padding: 6rem 2rem;
+    background: #f8f9fa;
+    text-align: center;
+  }
+  
+  .why-choose-us h2 {
+    font-size: 2.5rem;
+    color: #2E5266FF;
+    margin-bottom: 3rem;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .benefit-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .benefit-icon {
+    color: #2E5266FF;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+  
+  .benefit-card h3 {
+    color: #2E5266FF;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .benefit-card p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  /* Testimonials Section */
+  .testimonials {
+    padding: 6rem 2rem;
+    background: white;
+    text-align: center;
+  }
+  
+  .testimonials h2 {
+    font-size: 2.5rem;
+    color: #2E5266FF;
+    margin-bottom: 3rem;
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .testimonial-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: left;
+    transition: all 0.3s ease;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rating {
+    margin-bottom: 1rem;
+  }
+  
+  .star-icon {
+    color: #ffd700;
+  }
+  
+  .comment {
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .user-info h4 {
+    color: #2E5266FF;
+    margin-bottom: 0.3rem;
+  }
+  
+  .user-info span {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /* Booking Steps Section */
+  .booking-steps {
+    padding: 6rem 2rem;
+    background: white;
+    text-align: center;
+  }
+  
+  .booking-steps h2 {
+    font-size: 2.5rem;
+    color: #2E5266FF;
+    margin-bottom: 3rem;
+  }
+  
+  .steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .step-card {
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .step-icon {
+    width: 80px;
+    height: 80px;
+    background: #2E5266FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+  }
+  
+  .step-card:hover .step-icon {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(46, 82, 102, 0.2);
+  }
+  
+  .step-card h3 {
+    color: #2E5266FF;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .step-card p {
+    color: #666;
+  }
+  
+  /* Features Section */
+  .features {
+    padding: 6rem 2rem;
+    background: #f8f9fa;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .feature-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-card h3 {
+    color: #2E5266FF;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .feature-card p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  /* Footer */
+  .footer {
+    background: #2E5266FF;
+    color: white;
+    padding: 4rem 2rem 1rem;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+  }
+  
+  .footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .footer-section h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background: white;
+  }
+  
+  .footer-section p {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .social-links svg {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .social-links svg:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Animations */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 1rem;
+    }
+  
+    .menu-btn {
+      display: block;
+    }
+  
+    .nav-links {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: #2E5266FF;
+      padding: 1rem;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+  
+    .nav-links.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  
+    .nav-menu {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .auth-buttons {
+      margin: 1rem 0 0;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .hero-stats {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    .booking-form {
+      grid-template-columns: 1fr;
+    }
+  
+    .cars-grid,
+    .benefits-grid,
+    .testimonials-grid,
+    .steps-container,
+    .features {
+      grid-template-columns: 1fr;
+    }
+  }
