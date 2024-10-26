@@ -1,11 +1,12 @@
 import express from 'express';
 import { Router } from 'express';
-import {getCars,postCars,updateCars,deleteCars} from "../controllers/car.controller";
-const routes = express.Router();
+import { getCars, postCars, updateCars, deleteCars, getById } from "../controllers/car.controller.js";
+const cars = express.Router();
 
-routes.get('/',getCars);
-routes.post('/cars',postCars);
-routes.patch('/cars',updateCars);
-routes.delete('/cars',deleteCars);
+cars.get('/',getCars);
+cars.post('/',postCars);
+cars.patch('/',updateCars);
+cars.delete('/',deleteCars);
+cars.get('/:id',getById);
 
-export default routes;
+export default cars;

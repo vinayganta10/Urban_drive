@@ -51,5 +51,5 @@ const carSchema = mongoose.Schema({
         required : true
     }
 });
-const carModel = mongoose.model(carSchema);
+const carModel = mongoose.model('Car', carSchema);
 export default carModel;
