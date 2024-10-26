@@ -4,6 +4,9 @@ import connection from './connect.js';
 import user from './models/user.js'
 import admin from './models/admin.js';
 import cars from './routes/car.route.js';
+import users from './routes/user.route.js';
+import signer from './auth/sign.js';
+
 const port = 4000;
 const app = express();
 
@@ -13,10 +16,13 @@ app.use(CORS());
 
 connection();
 
+app.use("/cars",cars);
+app.use("/users",users);
+
+
 app.get('/',(req,res)=>{
     res.send("working");
 });
-app.use("/cars",cars);
 
 app.post('/signup',async (req,res)=>{
     let body = req.body;
@@ -30,8 +36,11 @@ app.post('/signup',async (req,res)=>{
 app.post('/login',async (req,res)=>{
     let body = req.body;
     let exists = await user.find({email:body.email,password:body.password});
-    if(exists) res.status(200).send("User logged in successfully");
-    else res.status(404).send("Check your username or password");
+    if(exists){
+        let token = await signer({email:body.email});
+        res.status(200).send(token);
+    }
+    else res.status(300).send("Check your username or password");
 });
 
 app.listen(port,()=>{

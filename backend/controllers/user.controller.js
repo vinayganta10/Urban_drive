@@ -19,4 +19,4 @@ const updateUser = async (req,res)=>{
     res.send("updated");
 }
 
-export default {getUser, updateUser};
+export {getUser, updateUser};
