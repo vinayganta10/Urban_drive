@@ -3,7 +3,7 @@ import CORS from 'cors';
 import connection from './connect.js';
 import user from './models/user.js'
 import admin from './models/admin.js';
-
+import routes from './routes/car.route.js';
 const port = 4000;
 const app = express();
 
@@ -16,6 +16,7 @@ connection();
 app.get('/',(req,res)=>{
     res.send("working");
 });
+app.use("/cars",routes);
 
 app.post('/signup',async (req,res)=>{
     let body = req.body;
