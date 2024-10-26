@@ -77,7 +77,8 @@ export const postCars = async(req,res)=>
                     car_price: details.car_price,
                     car_location: details.car_location,
                     car_seater: details.car_seater,
-                    car_description: details.car_description
+                    car_description: details.car_description,
+                    car_image : details.car_image
                 });
                 res.status(201).json({
                     message: "Car added successfully",

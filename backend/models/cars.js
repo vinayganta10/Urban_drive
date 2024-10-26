@@ -49,6 +49,11 @@ const carSchema = mongoose.Schema({
     {
         type : String ,
         required : true
+    },
+    car_image :
+    {
+        type : String,
+        required : true
     }
 });
 const carModel = mongoose.model('Car', carSchema);
