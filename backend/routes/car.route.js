@@ -1,6 +1,6 @@
 import express from 'express';
 import { Router } from 'express';
-import {getCars,postCars,updateCars,deleteCars} from "../controllers/car.controller";
+import {getCars,postCars,updateCars,deleteCars} from "../controllers/car.controller.js";
 const routes = express.Router();
 
 routes.get('/',getCars);

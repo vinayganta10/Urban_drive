@@ -1,4 +1,4 @@
-import carModel from "../models/cars";
+import carModel from "../models/cars.js";
 /*
     car_id :
     {
