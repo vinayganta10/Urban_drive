@@ -1,11 +1,9 @@
 import mongoose from "mongoose";
 
-const userSchema = mongoose.Schema({
-    "username":String,
-    "password":String,
-    "phone":String,
+const bookingSchema = mongoose.Schema({
     "email":String,
-    "role":String
+    "car_id":String,
+    "car_name":String
 });
 
 const user = mongoose.model('users',userSchema);
