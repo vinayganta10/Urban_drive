@@ -5,7 +5,7 @@
   }
   
   .about-main {
-    padding-top: 80px;
+    padding-top: 0;
   }
   
   .about-hero {
@@ -16,6 +16,7 @@
     color: white;
     text-align: center;
     padding: 6rem 2rem;
+    margin-top: 64px;
   }
   
   .about-hero h1 {
@@ -143,12 +144,12 @@
     color: #666;
   }
   
-  /* Include the base styles you provided */
-  /* Base styles and navbar styles from Services.css */
-  /* ... */
-  
   /* Responsive Design */
   @media (max-width: 768px) {
+    .about-hero {
+      margin-top: 56px;
+    }
+  
     .about-hero h1 {
       font-size: 2.5rem;
     }
