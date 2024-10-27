@@ -8,22 +8,18 @@ import "../Styles/AdminBody.css";
 const AdminBody = () => {
   const [cars, setCars] = useState([]);
   const navigate = useNavigate();
-  const token = localStorage.getItem('token');
-
   useEffect(() => {
     fetchCars();
   }, []);
 
   const fetchCars = async () => {
     try {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbmRvbTJAZ21haWwuY29tIiwiaWF0IjoxNzI5OTk5MTY4LCJleHAiOjE3MzAwMDI3Njh9.qZkJoo-QXgtkn-2vK8pPHvHThw14io4PoQq283SWd4w'; 
-        const response = await axios.get('http://localhost:4000/cars', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        
-      console.log(response);
+      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbmRvbTJAZ21haWwuY29tIiwiaWF0IjoxNzMwMDA2NzQxLCJleHAiOjE3MzAwMTAzNDF9.Uen4hBfQgN-et5ZbPp0r4i1qkuDGphFBP_0jk9f6WHM'; 
+      const response = await axios.get('http://localhost:4000/cars', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       setCars(response.data);
     } catch (error) {
       console.error('Error fetching cars:', error);
@@ -32,12 +28,12 @@ const AdminBody = () => {
   };
 
   const handleEdit = (car) => {
-    navigate('/admin/edit-car', { state: { car } });
+    navigate('/admin/edit', { state: { car } });
   };
 
   const handleDelete = async (car) => {
     const confirmDelete = window.confirm(`Are you sure you want to delete ${car.car_name}?`);
-    
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbmRvbTJAZ21haWwuY29tIiwiaWF0IjoxNzMwMDA2NzQxLCJleHAiOjE3MzAwMTAzNDF9.Uen4hBfQgN-et5ZbPp0r4i1qkuDGphFBP_0jk9f6WHM'; 
     if (confirmDelete) {
       try {
         await axios.delete(`http://localhost:4000/cars/${car.car_id}`, {
@@ -52,11 +48,38 @@ const AdminBody = () => {
     }
   };
 
+  const toggleAvailability = async (car) => {
+    try {
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbmRvbTJAZ21haWwuY29tIiwiaWF0IjoxNzMwMDA2NzQxLCJleHAiOjE3MzAwMTAzNDF9.Uen4hBfQgN-et5ZbPp0r4i1qkuDGphFBP_0jk9f6WHM'; 
+      await axios.patch(`http://localhost:4000/cars`, 
+        {
+          car_id: car.car_id,
+          car_available: !car.car_available
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      );
+      
+      // Update local state
+      setCars(cars.map(c => 
+        c.car_id === car.car_id 
+          ? { ...c, car_available: !c.car_available }
+          : c
+      ));
+      
+      toast.success(`Car marked as ${!car.car_available ? 'available' : 'unavailable'}`);
+    } catch (error) {
+      console.error('Error updating car availability:', error);
+      toast.error('Failed to update car availability');
+    }
+  };
+
   return (
     <div className="admin-body">
       <div className="header">
         <h1>Car Fleet Management</h1>
-        <button className="add-car-btn" onClick={() => navigate('/admin/add-car')}>
+        <button className="add-car-btn" onClick={() => navigate('/admin/add')}>
           Add New Car
         </button>
       </div>
@@ -66,9 +89,19 @@ const AdminBody = () => {
           <div key={car.car_id} className="car-card">
             <div className="car-image">
               <img src={car.car_image} alt={car.car_name} />
-              <span className={`status ${car.car_available ? 'available' : 'unavailable'}`}>
-                {car.car_available ? 'Available' : 'Booked'}
-              </span>
+              <div className="status-container">
+                <label className="toggle">
+                  <input
+                    type="checkbox"
+                    checked={car.car_available}
+                    onChange={() => toggleAvailability(car)}
+                  />
+                  <span className="slider"></span>
+                </label>
+                <span className={`status ${car.car_available ? 'available' : 'unavailable'}`}>
+                  {car.car_available ? 'Available' : 'Booked'}
+                </span>
+              </div>
             </div>
             
             <div className="car-details">
