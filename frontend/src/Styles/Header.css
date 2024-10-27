@@ -1,0 +1,163 @@
+/* Navbar */
+.ud-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #2E5266FF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .ud-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .ud-brand-icon {
+    color: white;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .ud-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: auto;
+  }
+  
+  .ud-nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .ud-nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+  
+  .ud-nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .ud-nav-links a:hover::after,
+  .ud-nav-links a.active::after {
+    width: 100%;
+  }
+  
+  .ud-auth-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem;
+  }
+  
+  .ud-login-btn,
+  .ud-signup-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .ud-login-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .ud-signup-btn {
+    background: white;
+    color: #2E5266FF;
+    border: none;
+  }
+  
+  .ud-login-btn:hover,
+  .ud-signup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .ud-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .ud-navbar {
+      padding: 1rem;
+    }
+  
+    .ud-menu-btn {
+      display: block;
+    }
+  
+    .ud-nav-links {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: #2E5266FF;
+      padding: 1rem;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+  
+    .ud-nav-links.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  
+    .ud-nav-menu {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .ud-auth-buttons {
+      margin: 1rem 0 0;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }

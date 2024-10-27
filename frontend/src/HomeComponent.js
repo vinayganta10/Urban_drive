@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Menu, X, Car, Calendar, MapPin, ChevronRight, Phone, Mail, Facebook, Instagram, Twitter, Smartphone, CreditCard, CarFront, Star, Shield, Clock, DollarSign } from 'lucide-react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { Calendar, MapPin, ChevronRight, Smartphone, CreditCard, CarFront, Star, Shield, Clock, DollarSign } from 'lucide-react';
 import './HomeComponent.css';
 
 const HomeComponent = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState('');
   const [pickupDate, setPickupDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
@@ -53,57 +54,34 @@ const HomeComponent = () => {
   ];
 
   return (
-    <div className="home-container">
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="nav-brand">
-          <Car size={28} className="brand-icon" />
-          <span>UrbanDrive</span>
-        </div>
-        
-        <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <div className="nav-menu">
-            <a href="#home" className="active">Home</a>
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <div className="auth-buttons">
-            <button className="login-btn">Login</button>
-            <button className="signup-btn">Sign Up</button>
-          </div>
-        </div>
-
-        <button className="menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
+    <div className="ud-home-container">
+      <Header />
 
       {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <h1 className="animate-slide-up">Your Journey Begins with UrbanDrive</h1>
-          <p className="animate-fade-in">Experience premium car rentals with exceptional service and unbeatable prices</p>
+      <section className="ud-hero">
+        <div className="ud-hero-content">
+          <h1 className="ud-animate-slide-up">Your Journey Begins with UrbanDrive</h1>
+          <p className="ud-animate-fade-in">Experience premium car rentals with exceptional service and unbeatable prices</p>
           
-          <div className="hero-stats">
-            <div className="stat-item">
-              <span className="stat-number">1000+</span>
-              <span className="stat-label">Cars</span>
+          <div className="ud-hero-stats">
+            <div className="ud-stat-item">
+              <span className="ud-stat-number">1000+</span>
+              <span className="ud-stat-label">Cars</span>
             </div>
-            <div className="stat-item">
-              <span className="stat-number">50+</span>
-              <span className="stat-label">Locations</span>
+            <div className="ud-stat-item">
+              <span className="ud-stat-number">50+</span>
+              <span className="ud-stat-label">Locations</span>
             </div>
-            <div className="stat-item">
-              <span className="stat-number">24/7</span>
-              <span className="stat-label">Support</span>
+            <div className="ud-stat-item">
+              <span className="ud-stat-number">24/7</span>
+              <span className="ud-stat-label">Support</span>
             </div>
           </div>
         </div>
 
         {/* Booking Form */}
-        <div className="booking-form animate-slide-up">
-          <div className="form-group">
+        <div className="ud-booking-form ud-animate-slide-up">
+          <div className="ud-form-group">
             <MapPin size={20} />
             <select 
               value={selectedLocation}
@@ -116,7 +94,7 @@ const HomeComponent = () => {
             </select>
           </div>
 
-          <div className="form-group">
+          <div className="ud-form-group">
             <Calendar size={20} />
             <input
               type="date"
@@ -126,7 +104,7 @@ const HomeComponent = () => {
             />
           </div>
 
-          <div className="form-group">
+          <div className="ud-form-group">
             <Calendar size={20} />
             <input
               type="date"
@@ -136,28 +114,28 @@ const HomeComponent = () => {
             />
           </div>
 
-          <button className="search-btn">
+          <button className="ud-search-btn">
             Search Cars <ChevronRight size={20} />
           </button>
         </div>
       </section>
 
       {/* Popular Cars Section */}
-      <section className="popular-cars">
+      <section className="ud-popular-cars">
         <h2>Popular Cars</h2>
-        <div className="cars-grid">
+        <div className="ud-cars-grid">
           {popularCars.map((car, index) => (
-            <div key={index} className="car-card">
-              <div className="car-image" style={{ backgroundImage: `url(${car.image})` }}>
-                <span className="car-category">{car.category}</span>
+            <div key={index} className="ud-car-card">
+              <div className="ud-car-image" style={{ backgroundImage: `url(${car.image})` }}>
+                <span className="ud-car-category">{car.category}</span>
               </div>
-              <div className="car-details">
+              <div className="ud-car-details">
                 <h3>{car.name}</h3>
-                <div className="car-price">
-                  <span className="price">₹{car.price}</span>
-                  <span className="period">/day</span>
+                <div className="ud-car-price">
+                  <span className="ud-price">${car.price}</span>
+                  <span className="ud-period">/day</span>
                 </div>
-                <button className="book-now-btn">Book Now</button>
+                <button className="ud-book-now-btn">Book Now</button>
               </div>
             </div>
           ))}
@@ -165,26 +143,26 @@ const HomeComponent = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="why-choose-us">
+      <section className="ud-why-choose-us">
         <h2>Why Choose UrbanDrive?</h2>
-        <div className="benefits-grid">
-          <div className="benefit-card">
-            <Shield className="benefit-icon" />
+        <div className="ud-benefits-grid">
+          <div className="ud-benefit-card">
+            <Shield className="ud-benefit-icon" />
             <h3>Fully Insured</h3>
             <p>All our vehicles come with comprehensive insurance coverage</p>
           </div>
-          <div className="benefit-card">
-            <Clock className="benefit-icon" />
+          <div className="ud-benefit-card">
+            <Clock className="ud-benefit-icon" />
             <h3>24/7 Support</h3>
             <p>Round-the-clock customer support for your peace of mind</p>
           </div>
-          <div className="benefit-card">
-            <DollarSign className="benefit-icon" />
+          <div className="ud-benefit-card">
+            <DollarSign className="ud-benefit-icon" />
             <h3>Best Rates</h3>
             <p>Competitive pricing with no hidden fees</p>
           </div>
-          <div className="benefit-card">
-            <Star className="benefit-icon" />
+          <div className="ud-benefit-card">
+            <Star className="ud-benefit-icon" />
             <h3>Quality Service</h3>
             <p>Exceptional service quality with 5-star ratings</p>
           </div>
@@ -192,18 +170,18 @@ const HomeComponent = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="testimonials">
+      <section className="ud-testimonials">
         <h2>What Our Customers Say</h2>
-        <div className="testimonials-grid">
+        <div className="ud-testimonials-grid">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
-              <div className="rating">
+            <div key={index} className="ud-testimonial-card">
+              <div className="ud-rating">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={20} className="star-icon" />
+                  <Star key={i} size={20} className="ud-star-icon" />
                 ))}
               </div>
-              <p className="comment">{testimonial.comment}</p>
-              <div className="user-info">
+              <p className="ud-comment">{testimonial.comment}</p>
+              <div className="ud-user-info">
                 <h4>{testimonial.name}</h4>
                 <span>{testimonial.role}</span>
               </div>
@@ -213,32 +191,32 @@ const HomeComponent = () => {
       </section>
 
       {/* Booking Steps Section */}
-      <section className="booking-steps">
+      <section className="ud-booking-steps">
         <h2>How to Book Your Car?</h2>
-        <div className="steps-container">
-          <div className="step-card">
-            <div className="step-icon">
+        <div className="ud-steps-container">
+          <div className="ud-step-card">
+            <div className="ud-step-icon">
               <Smartphone size={32} />
             </div>
             <h3>1. Open App</h3>
             <p>Log into UrbanDrive app or website</p>
           </div>
-          <div className="step-card">
-            <div className="step-icon">
+          <div className="ud-step-card">
+            <div className="ud-step-icon">
               <Calendar size={32} />
             </div>
             <h3>2. Select Details</h3>
             <p>Choose city, date and time</p>
           </div>
-          <div className="step-card">
-            <div className="step-icon">
+          <div className="ud-step-card">
+            <div className="ud-step-icon">
               <CarFront size={32} />
             </div>
             <h3>3. Pick Car</h3>
             <p>Select from our premium fleet</p>
           </div>
-          <div className="step-card">
-            <div className="step-icon">
+          <div className="ud-step-card">
+            <div className="ud-step-icon">
               <CreditCard size={32} />
             </div>
             <h3>4. Drive Away</h3>
@@ -248,45 +226,25 @@ const HomeComponent = () => {
       </section>
 
       {/* Features Section */}
-      <section className="features">
-        <div className="feature-card">
-          <div className="feature-icon">🚗</div>
+      <section className="ud-features">
+        <div className="ud-feature-card">
+          <div className="ud-feature-icon">🚗</div>
           <h3>Wide Selection</h3>
           <p>Choose from our diverse fleet of vehicles</p>
         </div>
-        <div className="feature-card">
-          <div className="feature-icon">💰</div>
+        <div className="ud-feature-card">
+          <div className="ud-feature-icon">💰</div>
           <h3>Best Prices</h3>
           <p>Competitive rates and special offers</p>
         </div>
-        <div className="feature-card">
-          <div className="feature-icon">🔒</div>
+        <div className="ud-feature-card">
+          <div className="ud-feature-icon">🔒</div>
           <h3>Safe & Secure</h3>
           <p>Fully insured and maintained vehicles</p>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-section">
-            <h4>Contact Us</h4>
-            <p><Phone size={16} /> +1 (555) 123-4567</p>
-            <p><Mail size={16} /> info@urbandrive.com</p>
-          </div>
-          <div className="footer-section">
-            <h4>Follow Us</h4>
-            <div className="social-links">
-              <Facebook size={20} />
-              <Instagram size={20} />
-              <Twitter size={20} />
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>&copy; 2024 UrbanDrive. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

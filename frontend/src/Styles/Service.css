@@ -1,0 +1,341 @@
+/* Services specific styles */
+.services-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .services-main {
+    padding-top: 80px;
+  }
+  
+  .services-hero {
+    background: linear-gradient(rgba(46, 82, 102, 0.9), rgba(46, 82, 102, 0.9)),
+                url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=2070');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+  }
+  
+  .services-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .services-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .service-icon {
+    color: #2E5266FF;
+    margin-bottom: 1.5rem;
+  }
+  
+  .service-card h3 {
+    color: #2E5266FF;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .service-card p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .fleet-section {
+    padding: 4rem 2rem;
+    background: #f1f5f8;
+  }
+  
+  .fleet-section h2 {
+    text-align: center;
+    color: #2E5266FF;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+  }
+  
+  .fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .fleet-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fleet-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .fleet-info {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .fleet-info h3 {
+    color: #2E5266FF;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .fleet-info p {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .book-btn {
+    background: #2E5266FF;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .book-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Include the base styles you provided */
+  /* Base styles */
+  .home-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #2E5266FF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .brand-icon {
+    color: white;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: auto;
+  }
+  
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    width: 100%;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem;
+  }
+  
+  .login-btn,
+  .signup-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .login-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .signup-btn {
+    background: white;
+    color: #2E5266FF;
+    border: none;
+  }
+  
+  .login-btn:hover,
+  .signup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Footer */
+  .footer {
+    background: #2E5266FF;
+    color: white;
+    padding: 3rem 2rem 1.5rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-section h4 {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .footer-section p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .social-links svg {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-links svg:hover {
+    transform: translateY(-2px);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #2E5266FF;
+      padding: 1rem;
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .nav-menu {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .auth-buttons {
+      margin: 1rem 0;
+      justify-content: center;
+    }
+  
+    .menu-btn {
+      display: block;
+    }
+  
+    .services-hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .fleet-grid {
+      grid-template-columns: 1fr;
+    }
+  }
