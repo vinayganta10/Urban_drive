@@ -1,69 +1,81 @@
-import React,{useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import { TextField, Button, Box, Typography, Paper } from '@mui/material';
-import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Car } from 'lucide-react';
+import './Login.css';
 
 const Login = () => {
-    const navigate = useNavigate();
-    const [formData,setFormData] = useState({
-        "email":"",
-        "password":"",
-    })
-    const handleLogin = async (req,res)=>{
-        let response = await axios.post('http://localhost:4000/login',{
-            formData: formData
-        });
-        localStorage.setItem('token',response.token);
-        navigate('/home');
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:4000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const data = await response.json();
+      if (response.ok) {
+        localStorage.setItem('token', data.token);
+        navigate('/dashboard');
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
     }
-    return (
-        <Paper elevation={6} sx={{
-            padding: '2rem',
-            width: '300px',
-            margin: '2rem auto',
-            textAlign: 'center',
-            borderRadius: '10px',
-            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
-            '&:hover': { boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.5)' },
-            backgroundColor: '#f5f5f5'
-        }}>
-            <Typography variant="h5" component="h1" color="primary" sx={{ marginBottom: '1rem' }}>
-                Login
-            </Typography>
-            <Box component="form">
-                <TextField
-                    label="Email"
-                    variant="outlined"
-                    fullWidth
-                    margin="normal"
-                    sx={{ bgcolor: 'white', borderRadius: 1 }}
-                />
-                <TextField
-                    label="Password"
-                    type="password"
-                    variant="outlined"
-                    fullWidth
-                    margin="normal"
-                    sx={{ bgcolor: 'white', borderRadius: 1 }}
-                />
-                <Button
-                    variant="contained"
-                    color="primary"
-                    fullWidth
-                    sx={{
-                        marginTop: '1.5rem',
-                        padding: '0.5rem 0',
-                        borderRadius: '5px',
-                        backgroundColor: '#1976d2',
-                        '&:hover': { backgroundColor: '#115293', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)' },
-                    }}
-                    onClick={handleLogin}
-                >
-                    Login
-                </Button>
-            </Box>
-        </Paper>
-    );
+  };
+
+  return (
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="brand">
+          <Car className="brand-icon" />
+          <h1>UrbanDrive</h1>
+        </div>
+        <p className="subtitle">Welcome back!</p>
+        
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <button type="submit" className="submit-btn">
+            Login
+          </button>
+        </form>
+
+        <p className="switch-auth">
+          Don't have an account?{' '}
+          <span onClick={() => navigate('/signup')}>Sign Up</span>
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default Login;

@@ -1,0 +1,108 @@
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D3D0CBFF;
+    padding: 20px;
+  }
+  
+  .auth-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.2s ease;
+  }
+  
+  .auth-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .brand {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .brand-icon {
+    width: 48px;
+    height: 48px;
+    color: #2E5266FF;
+    margin: 0 auto;
+  }
+  
+  .brand h1 {
+    color: #2E5266FF;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.2s;
+    font-size: 1rem;
+  }
+  
+  .form-group input::placeholder {
+    color: #94a3b8;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #2E5266FF;
+    box-shadow: 0 0 0 3px rgba(46, 82, 102, 0.2);
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2E5266FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #1e3a4a;
+    transform: translateY(-1px);
+  }
+  
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+  
+  .switch-auth {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+  }
+  
+  .switch-auth span {
+    color: #2E5266FF;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .switch-auth span:hover {
+    text-decoration: underline;
+  }

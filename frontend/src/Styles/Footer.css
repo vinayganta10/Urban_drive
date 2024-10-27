@@ -1,0 +1,66 @@
+.ud-footer {
+    background: #2E5266FF;
+    color: white;
+    padding: 4rem 2rem 1rem;
+  }
+  
+  .ud-footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+  }
+  
+  .ud-footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .ud-footer-section h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background: white;
+  }
+  
+  .ud-footer-section p {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .ud-social-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .ud-social-links svg {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .ud-social-links svg:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+  }
+  
+  .ud-footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .ud-footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
