@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Car } from 'lucide-react';
-import './Signup.css'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Car } from "lucide-react";
+import axios from 'axios';
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import "./Signup.css";
 
 const Signup = () => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    phone: '',
-    password: ''
+    username: "",
+    email: "",
+    phone: "",
+    password: "",
+    role:"user"
   });
 
   const handleChange = (e) => {
@@ -18,17 +24,30 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:4000/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      if (response.ok) {
-        navigate('/login');
-      }
-    } catch (error) {
-      console.error('Signup failed:', error);
+    let isValidEmail = emailRegex.test(formData.email);
+    if(formData.password.length>6 && isValidEmail){
+        try {
+            const response = await axios.post(
+              "http://localhost:4000/signup",
+              formData,
+              {
+                headers: { "Content-Type": "application/json" },
+              }
+            );
+      
+            if (response.status === 200) {
+              toast.success("Account created successfully!,Please login",{autoClose:3000});
+              setTimeout(()=>navigate("/login"),2000);
+            }
+          } catch (error) {
+            console.error("Signup failed:", error);
+          }
+    }
+    else if(!isValidEmail){
+      toast.warning("Please enter a valid email",{autoClose:3000});
+    }
+    else{
+        toast.warning("Password need to be alteast 8 characters",{autoClose:3000});
     }
   };
 
@@ -40,7 +59,7 @@ const Signup = () => {
           <h1>UrbanDrive</h1>
         </div>
         <p className="subtitle">Join us and start your journey</p>
-        
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input
@@ -92,10 +111,11 @@ const Signup = () => {
         </form>
 
         <p className="switch-auth">
-          Already have an account?{' '}
-          <span onClick={() => navigate('/login')}>Login</span>
+          Already have an account?{" "}
+          <span onClick={() => navigate("/login")}>Login</span>
         </p>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
