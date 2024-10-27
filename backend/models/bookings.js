@@ -6,6 +6,6 @@ const bookingSchema = mongoose.Schema({
     "car_name":String
 });
 
-const user = mongoose.model('users',userSchema);
+const bookings = mongoose.model('bookings',bookingSchema);
 
-export default user;
+export default bookings;
