@@ -13,6 +13,7 @@ import AddCar from './components/AddCar.js';
 import EditCar from './components/EditCar.js';
 import Dashboard from './components/Dashboard.js';
 import AdminProfile from './components/AdminProfile.js';
+import AdminBookings from './components/AdminBookings.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -28,6 +29,7 @@ root.render(
           <Route path = "/admin/add" element = {<AddCar/>}/>
           <Route path = "/admin/dashboard" element = {<Dashboard/>}/>
           <Route path = "/admin/profile" element = {<AdminProfile/>}/>
+          <Route path = "/admin/bookings" element = {<AdminBookings/>}/>
         </Routes>
     </BrowserRouter>
     

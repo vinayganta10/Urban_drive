@@ -4,6 +4,7 @@ import axios from 'axios';
 import "../Styles/AddCar.css"
 import { useNavigate } from 'react-router-dom';
 const AddCar = () => {
+    const token = localStorage.getItem("token");
     const navigate = useNavigate();
   const [formData, setFormData] = useState({
     car_id: '',
@@ -28,7 +29,6 @@ const AddCar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbmRvbTJAZ21haWwuY29tIiwiaWF0IjoxNzMwMDA2NzQxLCJleHAiOjE3MzAwMTAzNDF9.Uen4hBfQgN-et5ZbPp0r4i1qkuDGphFBP_0jk9f6WHM'; 
       const response = await axios.post('http://localhost:4000/cars', formData, {
         headers: {
           Authorization: `Bearer ${token}`

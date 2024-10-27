@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import "../Styles/AdminBody.css";
 
 const AdminBody = () => {
+    const token = localStorage.getItem("token");
   const [cars, setCars] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -14,7 +15,6 @@ const AdminBody = () => {
 
   const fetchCars = async () => {
     try {
-      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbmRvbTJAZ21haWwuY29tIiwiaWF0IjoxNzMwMDA2NzQxLCJleHAiOjE3MzAwMTAzNDF9.Uen4hBfQgN-et5ZbPp0r4i1qkuDGphFBP_0jk9f6WHM'; 
       const response = await axios.get('http://localhost:4000/cars', {
         headers: {
           Authorization: `Bearer ${token}`
@@ -33,7 +33,6 @@ const AdminBody = () => {
 
   const handleDelete = async (car) => {
     const confirmDelete = window.confirm(`Are you sure you want to delete ${car.car_name}?`);
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbmRvbTJAZ21haWwuY29tIiwiaWF0IjoxNzMwMDA2NzQxLCJleHAiOjE3MzAwMTAzNDF9.Uen4hBfQgN-et5ZbPp0r4i1qkuDGphFBP_0jk9f6WHM'; 
     if (confirmDelete) {
       try {
         await axios.delete(`http://localhost:4000/cars/${car.car_id}`, {
@@ -50,7 +49,6 @@ const AdminBody = () => {
 
   const toggleAvailability = async (car) => {
     try {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbmRvbTJAZ21haWwuY29tIiwiaWF0IjoxNzMwMDA2NzQxLCJleHAiOjE3MzAwMTAzNDF9.Uen4hBfQgN-et5ZbPp0r4i1qkuDGphFBP_0jk9f6WHM'; 
       await axios.patch(`http://localhost:4000/cars`, 
         {
           car_id: car.car_id,

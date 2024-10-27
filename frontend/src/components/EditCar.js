@@ -5,6 +5,7 @@ import { Save, ArrowLeft, Car, Palette, DollarSign, MapPin, Users, FileText, Ima
 import "../Styles/EditCar.css"
 
 const EditCar = () => {
+    const token = localStorage.getItem("token");
   const location = useLocation();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -33,7 +34,6 @@ const EditCar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbmRvbTJAZ21haWwuY29tIiwiaWF0IjoxNzMwMDA2NzQxLCJleHAiOjE3MzAwMTAzNDF9.Uen4hBfQgN-et5ZbPp0r4i1qkuDGphFBP_0jk9f6WHM'; 
       await axios.patch('http://localhost:4000/cars', formData, {
         headers: {
           Authorization: `Bearer ${token}`
