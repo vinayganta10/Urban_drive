@@ -19,6 +19,7 @@ import User from './components/user/User.js';
 import Support from './components/user/Support.js';
 import UserProfile from './components/user/UserProfile.js';
 import UserBookings from './components/user/UserBookings.js';
+import PaymentComponent from './components/user/PaymentComponent.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -40,6 +41,7 @@ root.render(
           <Route path = "/user/view" element = {<ViewCar/>}/>
           <Route path = "/user/support" element = {<Support/>}/>
           <Route path = "/user/profile" element = {<UserProfile/>}/>
+          <Route path = "/user/payment" element = {<PaymentComponent/>}/>
         </Routes>
     </BrowserRouter>
     
