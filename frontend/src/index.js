@@ -15,6 +15,7 @@ import Dashboard from './components/Dashboard.js';
 import AdminProfile from './components/AdminProfile.js';
 import UserDashboard from './components/user/UserDashboard.js';
 import AdminBookings from './components/AdminBookings.js';
+import UserBookings from './components/user/UserBookings.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -31,6 +32,7 @@ root.render(
           <Route path = "/admin/dashboard" element = {<Dashboard/>}/>
           <Route path = "/admin/profile" element = {<AdminProfile/>}/>
           <Route path ="/user/dashboard" element = {<UserDashboard/>}/>
+          <Route path ="/user/bookings" element = {<UserBookings/>}/>
           <Route path = "/admin/bookings" element = {<AdminBookings/>}/>
         </Routes>
     </BrowserRouter>

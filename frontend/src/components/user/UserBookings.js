@@ -38,7 +38,7 @@ const UserBookings = () => {
                             <h3>{booking.car_name}</h3>
                             <p><strong>Car ID:</strong> {booking.car_id}</p>
                             <p><strong>Date:</strong> {new Date(booking.date).toLocaleDateString()}</p>
-                            <p><strong>Status:</strong> {booking.status}</p>
+                            <p><strong>Status: </strong>Active</p>
                         </div>
                     ))}
                 </div>
