@@ -33,7 +33,7 @@ const Login = () => {
         localStorage.setItem("email",formData.email);
         localStorage.setItem("role", response.data.role);
         if(response.data.role==='admin') navigate('/admin');
-        else navigate("/dashboard");
+        else navigate("/user/dashboard");
       }
     } catch (error) {
       console.error("Login failed:", error);
