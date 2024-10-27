@@ -8,6 +8,7 @@ import Signup from './components/auth/Signup.js';
 import Service from './components/Service.js';
 import About from './components/About.js';
 import Contact from './components/Contact.js';
+import AdminDashboard from './components/AdminDashboard.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -18,6 +19,7 @@ root.render(
           <Route path="/service" element = {<Service/>}/>
           <Route path = "/about" element = {<About/>}/>
           <Route path = "/contact" element = {<Contact/>}/>
+          <Route path = "/admin" element = {<AdminDashboard/>}/>
         </Routes>
     </BrowserRouter>
 );
