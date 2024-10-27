@@ -14,10 +14,14 @@ import EditCar from './components/EditCar.js';
 import Dashboard from './components/Dashboard.js';
 import AdminProfile from './components/AdminProfile.js';
 import AdminBookings from './components/AdminBookings.js';
+<<<<<<< HEAD
 import ViewCar from './components/user/ViewCar.js';
 import User from './components/user/User.js';
 import Support from './components/user/Support.js';
 import UserProfile from './components/user/UserProfile.js';
+=======
+import UserBookings from './components/user/UserBookings.js';
+>>>>>>> 4eb9f204b741c1dfcf607e7b72a495639c2e15e6
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -33,7 +37,12 @@ root.render(
           <Route path = "/admin/add" element = {<AddCar/>}/>
           <Route path = "/admin/dashboard" element = {<Dashboard/>}/>
           <Route path = "/admin/profile" element = {<AdminProfile/>}/>
+<<<<<<< HEAD
           <Route path ="/user" element = {<User/>}/>
+=======
+          <Route path ="/user/dashboard" element = {<UserDashboard/>}/>
+          <Route path ="/user/bookings" element = {<UserBookings/>}/>
+>>>>>>> 4eb9f204b741c1dfcf607e7b72a495639c2e15e6
           <Route path = "/admin/bookings" element = {<AdminBookings/>}/>
           <Route path = "/user/view" element = {<ViewCar/>}/>
           <Route path = "/user/support" element = {<Support/>}/>
