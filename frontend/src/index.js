@@ -35,7 +35,6 @@ root.render(
           <Route path = "/admin/dashboard" element = {<Dashboard/>}/>
           <Route path = "/admin/profile" element = {<AdminProfile/>}/>
           <Route path ="/user" element = {<User/>}/>
-          <Route path ="/user/dashboard" element = {<UserDashboard/>}/>
           <Route path ="/user/bookings" element = {<UserBookings/>}/>
           <Route path = "/admin/bookings" element = {<AdminBookings/>}/>
           <Route path = "/user/view" element = {<ViewCar/>}/>
