@@ -13,8 +13,11 @@ import AddCar from './components/AddCar.js';
 import EditCar from './components/EditCar.js';
 import Dashboard from './components/Dashboard.js';
 import AdminProfile from './components/AdminProfile.js';
-import UserDashboard from './components/user/UserDashboard.js';
 import AdminBookings from './components/AdminBookings.js';
+import ViewCar from './components/user/ViewCar.js';
+import User from './components/user/User.js';
+import Support from './components/user/Support.js';
+import UserProfile from './components/user/UserProfile.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -30,8 +33,11 @@ root.render(
           <Route path = "/admin/add" element = {<AddCar/>}/>
           <Route path = "/admin/dashboard" element = {<Dashboard/>}/>
           <Route path = "/admin/profile" element = {<AdminProfile/>}/>
-          <Route path ="/user/dashboard" element = {<UserDashboard/>}/>
+          <Route path ="/user" element = {<User/>}/>
           <Route path = "/admin/bookings" element = {<AdminBookings/>}/>
+          <Route path = "/user/view" element = {<ViewCar/>}/>
+          <Route path = "/user/support" element = {<Support/>}/>
+          <Route path = "/user/profile" element = {<UserProfile/>}/>
         </Routes>
     </BrowserRouter>
     

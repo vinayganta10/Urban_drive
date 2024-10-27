@@ -12,7 +12,7 @@ const getUser = async (req,res)=>{
 }
 
 const updateUser = async (req,res)=>{
-    let id = req.params.id;
+    let id = req.params.email;
     let body = req.body;
     const updated = req.body;
     await user.findOneAndUpdate({email:id},updated);

@@ -1,0 +1,128 @@
+.ud-support-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .ud-support-title {
+    color: #2E5266;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+  }
+  
+  .ud-contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+  
+  .ud-contact-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .ud-contact-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .ud-contact-icon {
+    font-size: 2.5em;
+    color: #2E5266;
+    margin-bottom: 15px;
+  }
+  
+  .ud-chat-button {
+    background-color: #2E5266;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ud-chat-button:hover {
+    background-color: #1a3f4d;
+  }
+  
+  .ud-support-form {
+    max-width: 600px;
+    margin: 0 auto 60px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ud-form-group {
+    margin-bottom: 20px;
+  }
+  
+  .ud-form-group input,
+  .ud-form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .ud-form-group textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  
+  .ud-submit-button {
+    background-color: #2E5266;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ud-submit-button:hover {
+    background-color: #1a3f4d;
+  }
+  
+  .ud-faq-section {
+    margin-top: 60px;
+  }
+  
+  .ud-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .ud-faq-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ud-faq-item h3 {
+    color: #2E5266;
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .ud-contact-methods {
+      grid-template-columns: 1fr;
+    }
+    
+    .ud-support-form {
+      padding: 20px;
+    }
+  }

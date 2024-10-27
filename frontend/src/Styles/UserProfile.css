@@ -1,0 +1,122 @@
+.up-profile-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  
+  .up-profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .up-avatar {
+    width: 120px;
+    height: 120px;
+    background-color: #2E5266;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .up-avatar-icon {
+    font-size: 60px;
+    color: white;
+  }
+  
+  .up-username {
+    color: #2E5266;
+    font-size: 2em;
+    margin: 0;
+  }
+  
+  .up-profile-content {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+  
+  .up-info-card {
+    margin-bottom: 30px;
+  }
+  
+  .up-info-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .up-info-item:last-child {
+    border-bottom: none;
+  }
+  
+  .up-info-icon {
+    font-size: 24px;
+    color: #2E5266;
+    margin-right: 20px;
+  }
+  
+  .up-info-text h3 {
+    margin: 0;
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  .up-info-text p {
+    margin: 5px 0 0;
+    color: #2E5266;
+    font-size: 1.1em;
+  }
+  
+  .up-actions {
+    text-align: center;
+  }
+  
+  .up-edit-button {
+    background-color: #2E5266;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .up-edit-button:hover {
+    background-color: #1a3f4d;
+  }
+  
+  .up-loading,
+  .up-error {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    color: #2E5266;
+  }
+  
+  .up-error {
+    color: #dc3545;
+  }
+  
+  @media (max-width: 600px) {
+    .up-profile-container {
+      padding: 10px;
+    }
+  
+    .up-profile-content {
+      padding: 20px;
+    }
+  
+    .up-avatar {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .up-avatar-icon {
+      font-size: 50px;
+    }
+  }
