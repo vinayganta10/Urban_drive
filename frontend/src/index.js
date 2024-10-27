@@ -37,12 +37,9 @@ root.render(
           <Route path = "/admin/add" element = {<AddCar/>}/>
           <Route path = "/admin/dashboard" element = {<Dashboard/>}/>
           <Route path = "/admin/profile" element = {<AdminProfile/>}/>
-<<<<<<< HEAD
           <Route path ="/user" element = {<User/>}/>
-=======
           <Route path ="/user/dashboard" element = {<UserDashboard/>}/>
           <Route path ="/user/bookings" element = {<UserBookings/>}/>
->>>>>>> 4eb9f204b741c1dfcf607e7b72a495639c2e15e6
           <Route path = "/admin/bookings" element = {<AdminBookings/>}/>
           <Route path = "/user/view" element = {<ViewCar/>}/>
           <Route path = "/user/support" element = {<Support/>}/>
