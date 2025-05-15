@@ -1,85 +1,138 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import QRCode from 'react-qr-code';
-import { CreditCard, Shield } from 'lucide-react';
-import "../../Styles/PaymentComponent.css"
 
 const PaymentComponent = () => {
-  const location = useLocation();
-  const { car } = location.state || {};
-  const [showQRCode, setShowQRCode] = useState(false);
-  
-  const upiLink = `upi://pay?pa=shivasaisripada612@ibl&pn=UrbanDrive&am=${car?.car_price || 0}&cu=INR`;
+  const { state } = useLocation();
+  const amount = state?.totalAmount || 0;
+  const [showQR, setShowQR] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const handlePayment = () => {
-    setShowQRCode(true);
+  const upiLink = `upi://pay?pa=shivasaisripada612@ibl&pn=UrbanDrive&am=${amount}&cu=INR`;
+
+  useEffect(() => {
+    let timer: any;
+
+    if (showQR) {
+      timer = setInterval(() => {
+        setProgress(prev => {
+          if (prev >= 180) {
+            clearInterval(timer);
+            return 180;
+          }
+          if (prev === 120) {
+            setShowSuccess(true);
+            addToOrders(); // Your order logic
+          }
+          return prev + 1;
+        });
+      }, 1000);
+    }
+
+    return () => clearInterval(timer);
+  }, [showQR]);
+
+  const addToOrders = () => {
+    // Implement API call or order creation logic
+    console.log("Order added successfully.");
+  };
+
+  const handlePay = () => {
+    setShowQR(true);
+  };
+
+  const containerStyle = {
+    padding: '2rem',
+    backgroundColor: '#f8f9fa',
+    minHeight: '100vh',
+    fontFamily: 'Segoe UI, sans-serif'
+  };
+
+  const cardStyle = {
+    maxWidth: '600px',
+    margin: '0 auto',
+    background: '#fff',
+    borderRadius: '12px',
+    padding: '2rem',
+    boxShadow: '0 0 20px rgba(0,0,0,0.1)'
+  };
+
+  const headingStyle = {
+    color: '#05aa6d',
+    fontWeight: 'bold',
+    marginBottom: '1rem'
+  };
+
+  const buttonStyle = {
+    backgroundColor: '#05aa6d',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '5px',
+    padding: '10px 20px',
+    fontWeight: 'bold'
+  };
+
+  const progressStyle = {
+    height: '20px',
+    backgroundColor: '#d4edda',
+    borderRadius: '5px',
+    marginTop: '1rem',
+    overflow: 'hidden'
+  };
+
+  const progressBarStyle = {
+    height: '100%',
+    width: `${(progress / 180) * 100}%`,
+    backgroundColor: '#05aa6d',
+    transition: 'width 1s linear'
+  };
+
+  const successAnimStyle = {
+    color: '#05aa6d',
+    fontSize: '1.5rem',
+    marginTop: '1rem',
+    fontWeight: 'bold',
+    animation: 'fadeIn 1s ease-in'
   };
 
   return (
-    <div className="pc-container">
-      <div className="pc-content">
-        <div className="pc-header">
-          <h1>UrbanDrive</h1>
-          <p>Complete your payment here</p>
+    <div style={containerStyle}>
+      <div style={cardStyle}>
+        <h2 style={headingStyle}>
+          <i className="bi bi-shield-check me-2"></i>UrbanDrive Payment
+        </h2>
+        <p className="text-muted">Pay securely with UPI</p>
+
+        <div className="mt-3 mb-3">
+          <h5>Amount to Pay: ₹{amount}</h5>
+          <button className="btn mt-3" style={buttonStyle} onClick={handlePay}>
+            <i className="bi bi-credit-card me-2"></i>Pay Now
+          </button>
         </div>
 
-        <div className="pc-payment-details">
-          <div className="pc-amount-card">
-            <h2>Payment Summary</h2>
-            <div className="pc-amount-row">
-              <span>Car Rental Fee</span>
-              <span className="pc-amount">₹{car?.car_price || 0}</span>
+        {showQR && (
+          <>
+            <div className="mt-4 text-center">
+              <h6>Scan to Pay</h6>
+              <QRCode value={upiLink} size={180} />
             </div>
-            <div className="pc-amount-row total">
-              <span>Total Amount</span>
-              <span className="pc-amount">₹{car?.car_price || 0}</span>
+
+            <div style={progressStyle}>
+              <div style={progressBarStyle}></div>
             </div>
-          </div>
 
-          <div className="pc-payment-method">
-            <h2>Payment Method</h2>
-            <button className="pc-pay-button" onClick={handlePayment}>
-              <CreditCard className="pc-button-icon" />
-              Pay Now
-            </button>
-          </div>
-
-          {showQRCode && (
-            <div className="pc-qr-section">
-              <h3>Scan QR Code to Pay</h3>
-              <div className="pc-qr-container">
-                <QRCode
-                  size={256}
-                  style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                  value={upiLink}
-                  viewBox={`0 0 256 256`}
-                />
+            {showSuccess && (
+              <div style={successAnimStyle}>
+                <i className="bi bi-check-circle-fill me-2"></i>Payment Successful!
               </div>
-              <div className="pc-security-note">
-                <Shield className="pc-shield-icon" />
-                <p>Secure Payment Gateway</p>
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className="pc-info-section">
-          <div className="pc-info-card">
-            <h3>Secure Payment</h3>
-            <p>Your payment information is encrypted and secure</p>
-          </div>
-          <div className="pc-info-card">
-            <h3>24/7 Support</h3>
-            <p>Our support team is always available to help</p>
-          </div>
-          <div className="pc-info-card">
-            <h3>Easy Refund</h3>
-            <p>Hassle-free refund process if needed</p>
-          </div>
-        </div>
+            )}
+          </>
+        )}
       </div>
     </div>
   );
 };
 
 export default PaymentComponent;
+
